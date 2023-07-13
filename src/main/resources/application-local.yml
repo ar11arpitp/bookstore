@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:OnlineBookstoreDb
+    username: root
+    password: root
+    driver-class-name: org.h2.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+server:
+  port: 8082
+
+springdoc:
+  show-actuator: false
+  use-management-port: false
+  api-docs:
+    path: /arp/api-docs
+  swagger-ui:
+    path: /arp/swagger-ui.html
+    tagsSorter: alpha
+    operationsSorter: alpha
+    enabled: true
+    csrf:
+      enabled: false
+
+application:
+  discounts:
+    fiction: 10
+    comic: 0
+

@@ -1,0 +1,44 @@
+version: '3'
+services:
+  online-bookstore-db:
+    container_name: online-bookstore-db
+    restart: unless-stopped
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=OnlineBookDb
+      - MYSQL_DATABASE=ONLINE_BOOKSTORE
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping -h localhost -u root -p1234" ]
+      timeout: 20s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "8082"
+    depends_on:
+      - online-bookstore-db
+    environment:
+      - DATABASE_HOST=online-bookstore-db
+      - MYSQL_ROOT_PASSWORD=OnlineBookDb
+      - SPRING_PROFILES_ACTIVE=docker-profile
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8088:8088"
+    depends_on:
+      - app
+    links:
+      - app
+volumes:
+  data:
