@@ -28,6 +28,7 @@ Each book has the following attributes:
 
 ### Discounts
 The promotional offers and discounts vary based on the type or classification of books. For instance, fiction books might be eligible for a 10% discount, whereas comic books are not eligible for any discount.
+
 -------------------------------------------------------------------------------------------
 
 ## Manual
