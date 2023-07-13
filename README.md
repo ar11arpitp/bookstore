@@ -16,7 +16,7 @@ Below tech Stack has been used to develop this project :
 - H2 (its used in local enviroment for the hassle free setup)
 - Hibernate ORM
 
-## GIVEN
+## Requirement
 ### Book Attributes
 Each book has the following attributes:
 - Name
@@ -28,6 +28,8 @@ Each book has the following attributes:
 
 ### Discounts
 The promotional offers and discounts vary based on the type or classification of books. For instance, fiction books might be eligible for a 10% discount, whereas comic books are not eligible for any discount.
+-------------------------------------------------------------------------------------------
+
 ## Manual
 To execute the application on your local machine, please choose the "local" spring profile. However, I highly recommend utilizing Docker Compose, which is a tool for specifying and executing Docker applications to multiple containers. With Docker Compose, you can easily run the entire application stack by executing a single command, streamlining the deployment procedure.
 - To start the application using Docker Compose, navigate to the project directory and run the following command: 
@@ -42,7 +44,7 @@ To execute the application on your local machine, please choose the "local" spri
 ```
 - To stop the application gracefully, just use CTRL+C in the terminal Docker Compose.This should stop and remove the containers, networks, and volumes created by Docker Compose.
 ```bash
-        docker-compose down -v
+        docker-compose down --rmi all
 ```
 
 ## Swagger API Documentation
