@@ -14,7 +14,7 @@ Below tech Stack has been used to develop this project :
 - Swagger OpenAPI 2.1.0
 - MySQL (Used for multicontainer application as it can be deployed separately)
 - H2 (its used in local enviroment for the hassle free setup)
-- Hibernate ORM
+- Spring Data JPA
 
 ## Requirement
 ### Book Attributes
